@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: didacteon-juegos-db
+    environment:
+      POSTGRES_USER: didacteon
+      POSTGRES_PASSWORD: didacteon
+      POSTGRES_DB: didacteon_juegos
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
