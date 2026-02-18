@@ -10,6 +10,6 @@ export const db = new Proxy({} as ReturnType<typeof drizzle<typeof schema>>, {
       const client = postgres(process.env.DATABASE_URL!);
       _db = drizzle(client, { schema });
     }
-    return (_db as Record<string | symbol, unknown>)[prop];
+    return (_db as unknown as Record<string | symbol, unknown>)[prop];
   },
 });
